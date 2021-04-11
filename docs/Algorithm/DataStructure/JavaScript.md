@@ -8,7 +8,7 @@
 最好：`O(n)`，只需要冒泡一次数组就有序了。   
 最坏：`O(n²)`   
 平均：`O(n²)`
-```
+```js
 function bubbleSort(nums) {
   for(let i=0, len=nums.length; i<len-1; i++) {
     // 如果一轮比较中没有需要交换的数据，则说明数组已经有序。主要是对[5,1,2,3,4]之类的数组进行优化
@@ -26,7 +26,7 @@ function bubbleSort(nums) {
 
 ## 双向冒泡
 普通的冒泡排序在一趟循环中只能找出一个最大值或最小值，双向冒泡则是多一轮循环既找出最大值也找出最小值。
-```
+```js
 function bubbleSort_twoWays(nums) {
   let low = 0;
   let high = nums.length - 1;
@@ -59,7 +59,7 @@ function bubbleSort_twoWays(nums) {
 最好：`O(n²)`   
 最坏：`O(n²)`   
 平均：`O(n²)`
-```
+```js
 function selectSort(nums) {
   for(let i=0, len=nums.length; i<len; i++) {
     for(let j=i+1; j<len; j++) {
@@ -77,7 +77,7 @@ function selectSort(nums) {
 最好：`O(n)`，原数组已经是升序的。     
 最坏：`O(n²)`    
 平均：`O(n²)`
-```
+```js
 function insertSort(nums) {
   for(let i=1, len=nums.length; i<len; i++) {
     let temp = nums[i];
@@ -103,7 +103,7 @@ function insertSort(nums) {
 [三种快速排序以及快速排序的优化](https://blog.csdn.net/insistGoGo/article/details/7785038)
 ### 快速排序之填坑
 从右边向中间推进的时候，遇到小于基数的数就赋给左边（一开始是基数的位置），右边保留原先的值等之后被左边的值填上。
-```
+```js
 function quickSort(nums) {
   // 递归排序基数左右两边的序列
   function recursive(arr, left, right) {
@@ -133,7 +133,7 @@ function quickSort(nums) {
 
 ### 快速排序之交换
 从左右两边向中间推进的时候，遇到不符合的数就两边交换值。
-```
+```js
 function quickSort1(nums) {
   function recursive(arr, left, right) {
     if(left >= right)  return;
@@ -173,7 +173,7 @@ function quickSort1(nums) {
 
 参考学习链接：   
 [图解排序算法(四)之归并排序](https://www.cnblogs.com/chengxiao/p/6194356.html)
-```
+```js
 function mergeSort(nums) {
   // 有序合并两个数组
   function merge(l1, r1, l2, r2) {
@@ -213,7 +213,7 @@ function mergeSort(nums) {
 
 参考学习链接：   
 [拜托，面试别再问我桶排序了！！！](http://zhuanlan.51cto.com/art/201811/586129.htm)
-```
+```js
 function bucketSort(nums) {
   // 桶的个数，只要是正数即可
   let num = 5;
@@ -255,7 +255,7 @@ function bucketSort(nums) {
 参考学习链接：    
 [算法总结系列之五: 基数排序(Radix Sort)](https://www.cnblogs.com/sun/archive/2008/06/26/1230095.html)
 []()
-```
+```js
 function radixSort(nums) {
   // 计算位数
   function getDigits(n) {
@@ -305,7 +305,7 @@ function radixSort(nums) {
 最好：`O(n + k)`，k是最大值和最小值的差。   
 最坏：`O(n + k)`   
 平均：`O(n + k)`
-```
+```js
 function countingSort(nums) {
   let arr = [];
   let max = Math.max(...nums);
@@ -330,7 +330,7 @@ function countingSort(nums) {
 把每一个数组元素都加上 min 的相反数，来避免特殊情况下的空间浪费，通过这种优化可以把所开的空间大小从 max+1 降低为 max-min+1，max 和 min 分别为数组中的最大值和最小值。   
 
 比如数组 [103, 102, 101, 100]，普通的计数排序需要开一个长度为 104 的数组，而且前面 100 个值都是 undefined，使用该优化方法后可以只开一个长度为 4 的数组。
-```
+```js
 function countingSort(nums) {
   let arr = [];
   let max = Math.max(...nums);
@@ -363,7 +363,7 @@ function countingSort(nums) {
 参考学习链接：    
 [常见排序算法 - 堆排序 (Heap Sort)](http://bubkoo.com/2014/01/14/sort-algorithm/heap-sort/)    
 [图解排序算法(三)之堆排序](https://www.cnblogs.com/chengxiao/p/6129630.html)
-```
+```js
 function heapSort(nums) {
   // 调整最大堆，使index的值大于左右节点
   function adjustHeap(nums, index, size) {
@@ -413,7 +413,7 @@ function heapSort(nums) {
 
 参考学习链接：   
 [图解排序算法(二)之希尔排序](https://www.cnblogs.com/chengxiao/p/6104371.html)
-```
+```js
 function shellSort(nums) {
   let len = nums.length;
   // 初始步数
